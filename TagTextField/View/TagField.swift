@@ -10,7 +10,7 @@ import SwiftUI
 struct TagField: View {
     @Binding var tags: [Tag]
     var body: some View {
-        HStack {
+        TagLayout(alignment: .leading) {
             ForEach($tags) { $tag in
                 TagView(tag: $tag, allTags: $tags)
                     .onChange(of: tag.value) { oldValue, newValue in
@@ -35,6 +35,12 @@ struct TagField: View {
                 tags.append(.init(value: "", isInitial: true) )
             }
         })
+        .onReceive(NotificationCenter.default.publisher (for: UIResponder.keyboardWillHideNotification), perform: { _ in
+            if let lastTag = tags.last, lastTag.value.isEmpty {
+                // Inserting empty tag at last
+                tags.append(.init(value: "", isInitial: true))
+            }
+        })
     }
 }
 
@@ -51,6 +57,10 @@ fileprivate struct TagView: View {
             if allTags.count > 1 {
                 if tag.value.isEmpty {
                     allTags.removeAll(where: { $0.id == tag.id })
+                    // Activating the previously available Tag
+                    if let lastIndex = allTags.indices.last {
+                        allTags[lastIndex].isInitial = false
+                    }
                 }
             }
         })
@@ -70,9 +80,17 @@ fileprivate struct TagView: View {
                     .fill(.clear)
                     .contentShape(.rect)
                     .onTapGesture {
-                        tag.isInitial = false
-                        isFocused = true
+                        // Activating only for last Tag
+                        if allTags.last?.id == tag.id {
+                            tag.isInitial = false
+                            isFocused = true
+                        }
                     }
+            }
+        }
+        .onChange(of: isFocused) { _, _  in
+            if !isFocused {
+                tag.isInitial = true
             }
         }
     }
@@ -142,6 +160,10 @@ fileprivate class CustomTextField: UITextField {
         // This will be called when ever keyboard back button is pressed
         onBackPressed?()
         super.deleteBackward()
+    }
+    
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return false
     }
 }
 

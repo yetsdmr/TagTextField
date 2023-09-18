@@ -14,6 +14,7 @@
 		4AC572452AB72A3C007F1366 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC572442AB72A3C007F1366 /* Tag.swift */; };
 		4AC572472AB72A7B007F1366 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC572462AB72A7B007F1366 /* Home.swift */; };
 		4AC572492AB72ADD007F1366 /* TagField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC572482AB72ADD007F1366 /* TagField.swift */; };
+		4AC572652AB73C70007F1366 /* TagLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC572642AB73C70007F1366 /* TagLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		4AC572442AB72A3C007F1366 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		4AC572462AB72A7B007F1366 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		4AC572482AB72ADD007F1366 /* TagField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagField.swift; sourceTree = "<group>"; };
+		4AC572642AB73C70007F1366 /* TagLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				4AC572462AB72A7B007F1366 /* Home.swift */,
 				4AC572482AB72ADD007F1366 /* TagField.swift */,
+				4AC572642AB73C70007F1366 /* TagLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				4A1625492AB48DB800737FFD /* ContentView.swift in Sources */,
 				4AC572472AB72A7B007F1366 /* Home.swift in Sources */,
 				4AC572492AB72ADD007F1366 /* TagField.swift in Sources */,
+				4AC572652AB73C70007F1366 /* TagLayout.swift in Sources */,
 				4A1625472AB48DB800737FFD /* TagTextFieldApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
